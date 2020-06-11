@@ -12,19 +12,19 @@
   <!-- Sidenav -->
   <mat-sidenav #sidenav [mode]="isBiggerScreen() ? 'over' : 'side'" [(opened)]="opened" [fixedInViewport]="true"
     [fixedTopGap] >
-    <mat-nav-list >
+    <mat-nav-list *ngFor="let p of appPages;">
 
 
 
 
 
-      <a mat-list-item routerLinkActive="active" routerLink="/dashboard/app-upload-article" (click)="sidenav.close()">
-        <mat-icon>add</mat-icon> Articles
+      <a mat-list-item routerLinkActive="active" routerLink="p.url" (click)="sidenav.close()">
+        <mat-icon>{{p.icon}}</mat-icon>{{p.title}}
       </a>
 
 
 
-      <a mat-list-item routerLinkActive="active" routerLink="/dashboard/view-articles" (click)="sidenav.close()">
+      <!-- <a mat-list-item routerLinkActive="active" routerLink="/dashboard/view-articles" (click)="sidenav.close()">
         <mat-icon>rss_feed</mat-icon> Articles feed
       </a>
       <a mat-list-item routerLinkActive="active" routerLink="/dashboard/members-list" (click)="sidenav.close()">
@@ -45,7 +45,7 @@
 
       <a mat-list-item routerLinkActive="active">
         <mat-icon>input</mat-icon> Log out
-      </a>
+      </a> -->
 
     </mat-nav-list>
   </mat-sidenav>
