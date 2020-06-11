@@ -1,0 +1,57 @@
+<mat-toolbar color="primary" class="header">
+  <span class="nav-tool-items">
+      <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
+    </span>
+<div><img class="custome_img" src="./assets/ic_launcher.png">Side-Menu</div>
+ <!-- <div *ngIf="authService.canRead(user)">
+   hello
+  </div> -->
+
+</mat-toolbar>
+<mat-sidenav-container>
+  <!-- Sidenav -->
+  <mat-sidenav #sidenav [mode]="isBiggerScreen() ? 'over' : 'side'" [(opened)]="opened" [fixedInViewport]="true"
+    [fixedTopGap] >
+    <mat-nav-list >
+
+
+
+
+
+      <a mat-list-item routerLinkActive="active" routerLink="/dashboard/app-upload-article" (click)="sidenav.close()">
+        <mat-icon>add</mat-icon> Articles
+      </a>
+
+
+
+      <a mat-list-item routerLinkActive="active" routerLink="/dashboard/view-articles" (click)="sidenav.close()">
+        <mat-icon>rss_feed</mat-icon> Articles feed
+      </a>
+      <a mat-list-item routerLinkActive="active" routerLink="/dashboard/members-list" (click)="sidenav.close()">
+        <mat-icon>supervised_user_circle</mat-icon> Members
+      </a>
+      <a mat-list-item routerLinkActive="active" routerLink="/dashboard/panel-view" (click)="sidenav.close()">
+        <mat-icon>supervisor_account</mat-icon>  Council members
+      </a>
+
+
+      <a mat-list-item routerLinkActive="active" routerLink="/dashboard/user-list" (click)="sidenav.close()">
+        <mat-icon>how_to_reg</mat-icon> Member registration
+      </a>
+
+      <a mat-list-item routerLinkActive="active" routerLink="/dashboard/image-upload" (click)="sidenav.close()">
+        <mat-icon>how_to_reg</mat-icon> image upload
+      </a>
+
+      <a mat-list-item routerLinkActive="active">
+        <mat-icon>input</mat-icon> Log out
+      </a>
+
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <!-- Main content -->
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
